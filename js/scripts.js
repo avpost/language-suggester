@@ -12,8 +12,29 @@ var food;
 
 // front-end logic:
 
-$(document).ready(function() {
-  $("form#suggest").submit(function(event) {
-   event.preventDefault();
-  });
+$(document).ready(function () {
+
+  function getValues() {
+    school = $("input:radio[name=question1]:checked").val();
+  }
+
+  $("form#suggestion").submit(function (event) {
+
+    getValues();
+    event.preventDefault();
+
+    if (school == "Art") {
+      $("#choice").text(answer + language1);
+    }
+
+    if (school == "Science") {
+      $("#choice").text(answer + language2);
+    }
+
+    else if (school == "Both") {
+      $("#choice").text(answer + language3);
+    }
+
+
+  })
 });
